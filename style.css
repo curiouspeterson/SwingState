@@ -1,0 +1,129 @@
+.body{
+  height: 100%;
+  width:100%;
+  position:relative;
+
+}
+
+#header{
+	text-align:center;
+}
+.swing-container{
+	position:relative;
+
+}
+.swing-outer{
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: aliceblue;
+}
+.swing-inner{
+   transform-origin: top;
+    
+    position:relative;
+    text-align: center;
+		overflow:visible;
+		height:200px;
+		width:150px;
+		left:50%;
+		margin-left:-75px;
+}
+
+.colorado .stateshape{
+	background-image
+}
+
+.swing-inner.active{
+  -webkit-animation: example 5s ease-in-out 0s;
+}
+.chain{
+  width:10px;
+  background:red;
+  height:100%;
+  position:absolute;
+	z-index:10;
+}
+
+.chain.right{
+  top:0;
+  right:0px;
+}
+
+.chain.left{
+  top:0;
+  left:0px;
+}
+
+.swing-bottom{
+  height:10px;
+  width:100%;
+  background:red;
+  bottom:0px;
+  position:absolute;
+	z-index:10;
+}
+
+
+.state{
+  position:absolute;
+  bottom:300px;
+  text-align: center;
+  width:100%;
+	display:block;
+	-webkit-transition: bottom 1s ease-in-out;
+	-o-transition: bottom 1s ease-in-out;
+	transition: bottom 1s ease-in-out;
+	z-index:9;
+}
+
+.state.in-swing{
+  bottom:10px;
+	display:block;
+	-webkit-transition: bottom 1s ease-in-out;
+	-o-transition: bottom 1s ease-in-out;
+	transition: bottom 1s ease-in-out;
+}
+
+
+
+
+
+
+@-webkit-keyframes example {
+    0% {
+       -webkit-transform: perspective(400) rotateX(0deg);
+    }
+    10% {
+       -webkit-transform: perspective(400) rotateX(-80deg);
+    }
+    20% {
+       -webkit-transform: perspective(400) rotateX(70deg);
+    }
+    30% {
+       -webkit-transform: perspective(400) rotateX(-60deg);
+    }
+    40% {
+       -webkit-transform: perspective(400) rotateX(50deg);
+    }
+    50% {
+       -webkit-transform: perspective(400) rotateX(-40deg);
+    }
+    60% {
+       -webkit-transform: perspective(400) rotateX(30deg);
+    }
+    70% {
+       -webkit-transform: perspective(400) rotateX(-20deg);
+    }
+    80% {
+       -webkit-transform: perspective(400) rotateX(10deg);
+    }
+    90% {
+       -webkit-transform: perspective(400) rotateX(-5deg);
+    }
+    100% {
+       -webkit-transform: perspective(400) rotateX(0deg);
+    }
+}
