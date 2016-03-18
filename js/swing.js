@@ -8,7 +8,6 @@ $(document).ready(function() {
 	}
 	
 	$( ".swing-inner" ).click(function() {
-		console.log('inner-clicked');
 		$(this).removeClass('active');
 	  $(this).addClass('active');
 	  setTimeout(function () {
@@ -20,10 +19,8 @@ $(document).ready(function() {
 	$( ".state-selection" ).click(function(event) {
 		event.preventDefault();
 		var dataState = $(this).data('state');
-		console.log(dataState);
 		$('.state.active').addClass('not-active');
 		var selectedState = ".state." + dataState + "";
-		console.log(selectedState);
 		$(selectedState).addClass('in-swing');
 		$('.in-swing').removeClass('in-swing');
 		$(selectedState).addClass('in-swing');
