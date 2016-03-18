@@ -585,7 +585,7 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight: 400;
 }
 h2 {
-	font-size: 62px;
+	font-size: 42px;
 	margin-bottom: 10px;
 	text-align: center;
 	font-weight: 500;
@@ -1088,7 +1088,7 @@ body {
 font-size: 39px;
 }
 h2 {
-font-size: 56px;
+font-size: 36px;
 }
 #difference-subheading {
 font-size: 22px;
