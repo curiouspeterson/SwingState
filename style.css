@@ -752,25 +752,35 @@ header h1 a:visited {
 
 }
 
+.state-selection-container{
+	position:relative;
+	z-index:11;
+}
 
 .state{
   position:absolute;
   bottom:300px;
   text-align: center;
   width:100%;
-	display:none;
-	-webkit-transition: bottom 1s ease-in-out;
-	-o-transition: bottom 1s ease-in-out;
-	transition: bottom 1s ease-in-out;
-	z-index:9;
-}
-
-.state.in-swing{
-  bottom:10px;
 	display:block;
 	-webkit-transition: bottom 1s ease-in-out;
 	-o-transition: bottom 1s ease-in-out;
 	transition: bottom 1s ease-in-out;
+	z-index:9;
+	opacity: 0;
+	-moz-opacity: 0;
+		filter:alpha(opacity=0);
+}
+
+.state.in-swing{
+  bottom:10px;
+
+	-webkit-transition: bottom 1s ease-in-out;
+	-o-transition: bottom 1s ease-in-out;
+	transition: bottom 1s ease-in-out;
+	opacity: 1.0;
+	-moz-opacity: 1.0;
+		filter:alpha(opacity=100);
 	
 }
 
