@@ -235,13 +235,15 @@ td {
 	background: url('img/ajax-loader2.gif');
 }
 #ajax-container {
-    background: #4CBEF0;
+    
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	min-height: 100%;
+	background: url('images/1-Backyard-Tree-Ideas-iStock.jpg') no-repeat center center;
+
 }
 .organization-disclaimer {
 	font-size: 17px;
