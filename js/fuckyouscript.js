@@ -13,7 +13,6 @@ $(document).ready(function() {
 		$currentWidth = '',
 		$newWidth = '',
 		$isMobile = false,
-		$whoYouTweetingAt = "",
 		$el;
 	if (navigator.userAgent.match(/(iPhone|iPod|Android|BlackBerry)/)) {
 		$isMobile = true;
@@ -44,194 +43,23 @@ $(document).ready(function() {
 		}
 	}
 
-	function isSupportedBrowserHistory() {
-		return !!(window.history && history.pushState);
-	}
-
-	function popStateHandler(event) {
-		if (event.state != null) {
-			(event.preventDefault) ? event.preventDefault() : event.returnValue = false;
-			ajaxLoadContent(event.state);
-		}
-	}
 	
 	
 
 	function init() {
-		
-		$(function() {
-			window.history.pushState("Fuck You Congress", "Fuck You Congress", "");
-	    });
-		
-		
-	/*
-		var newPath = '.post-content[data-slug="' + location.pathname.substr(1) + '"]';
-			var newLink = '.post-content[data-slug="' + location.pathname.substr(1) + '"] a.random-post-link';
-			console.log(newLink);
-			
-			var $id = $('.post-content[data-slug="' + location.pathname.substr(1) + '"]').attr("id");
-			
-			var $id = "#" + $id + " a.random-post-link";
-			console.log($id);
-			
-			$(function() {
-						$($id).click();
-	
-			    });
-			
-	*/
-	
-	
-	
-		
+
 		$newHeight = $('.current-post').outerHeight();
 		$('#home-page-intro-inner').css('min-height', $newHeight);
-		twitterZip();
 		bindHoverFx();
 		fullScreenSlide();
 		mediaQueryCalculator();
-/*		$historySupported = isSupportedBrowserHistory();*/
 		$historySupported = false;
-		if ($historySupported) {
-			var current = location.protocol + '//' + location.hostname + location.pathname;
-			if (base + '/' != current) {
-				var diff = current.replace(base, '');
-				history.replaceState(diff, base + diff, diff);
-			} else {
-				var diff = $('#post-1').data('slug');
-				history.replaceState(diff, base + diff, diff);
-				$thisPost = $('.current-post .nav-below a').data('this');
-				document.title = $($thisPost).data('title');
-				_gaq.push(['_trackPageview']);
-			}
-			window.onpopstate = popStateHandler;
-		} else {}
+
 	}
 
-	function twitterZip() {
-		$("#twitter-zip-text").keyup(function(event) {
-			if (event.keyCode == 13) {
-				$("#twitter-zip-submit").click();
-			}
-		});
-		$('#twitter-zip-submit').on("click", function() {
-			var userInputZip = $('#twitter-zip-text').val();
-			if (userInputZip.length !== 5 || !/^\d+$/.test(userInputZip)) {
-				$('#twitter-subtitle').html('<span class="twitter-error">We\'re not sure what that was, but it\'s not a valid zip..</span>');
-				return false;
-			}
-			userState = userInputZip;
-			$.ajax({
-				url: ("https://congress.api.sunlightfoundation.com/legislators/locate?chamber=house&zip=" + userState + "&apikey=2497ab250c7544fe9721e938bef24e59"),
-				dataType: "json",
-				type: "get",
-				success: function(response) {
-					var results;
-					var senatorHandles;
-					var tweetBodies = ["Yes, it's seriously this bad. You've reduced us to publicly saying #FuckYouCongress. fuckyoucongress.com"];
-					var randomIndex = Math.floor(Math.random() * tweetBodies.length);
-					var tweetContent = tweetBodies[randomIndex];
-					var apiButtonText = "";
-					var tweetURL = "";
-					var apiFriendlyContent;
-					var apiSafeKeepUsHereURL = "";
-					if (response.count === 0) {
-						$('#twitter-subtitle').html('<span class="twitter-error">We\'re not sure what that was, but it\'s not a valid zip..</span>');
-						return false;
-					} else {
-						$('#twitter-subtitle').html("Tell the elected official from your district that you've fucking had enough.");
-						results = response.results;
-						$.each(results, function() {
-							if (this.chamber === "house" && typeof this.twitter_id === "string") {
-								tweetContent = tweetContent + " @" + this.twitter_id;
-								apiButtonText = apiButtonText + " " + this.last_name + " and";
-							}
-						});
-						apiButtonText = apiButtonText.substring(0, apiButtonText.length - 4);
-						$('#twitter-zip-submit').css('display', 'none');
-						$('#twitter-api-submit').fadeIn();
-						$('#twitter-api-submit').text('Let ' + apiButtonText + ' Know You\'re Fed Up');
-						_gaq.push(['_trackEvent', 'Find Congress twitter by Zip Code ', 'Zip Code entered', apiButtonText]);
-						apiFriendlyContent = tweetContent.replace(' ', '%20').replace('#', '%23').replace('@', '%40');
-						tweetURL = "http://twitter.com/share?url=http%3A%2F%2F&text=" + apiFriendlyContent;
-						$('#twitter-api-submit').on("click", function() {
-							window.open(tweetURL, 'Tweet @ Congress');
-							_gaq.push(['_trackEvent', 'TW_at_congress', 'Tweet @ Congress button clicked', apiButtonText]);
-							return false;
-						});
-						$('#tweet-zip-row').fadeOut(400, function() {
-							$('#tweet-api-row').fadeIn();
-						});
-					}
-				},
-				error: function() {
-					$('#twitter-subtitle').html('<span class="twitter-error">Sorry, there was an error. Did you enter a valid zip code?</span>');
-				}
-			});
-			return false;
-		});
-	}
 
-	function ajaxLoadContent(path) {
-		$innerContainer.fadeOut();
-		$('#ajax-loader').fadeIn();
-		$.ajax({
-			type: "GET",
-			url: base + path,
-			dataType: "html",
-			success: function(out) {
-				var result = $(out);
-				var pageContent = $(out).find("#content");
-				$mainContent.empty();
-				$('#ajax-loader').fadeOut();
-				$mainContent.append(pageContent.fadeIn());
-				fullScreenSlide();
-				bindHoverFx();
-				$innerContainer = pageContent;
-				document.title = $innerContainer.data('title');
-				var classList = $innerContainer.attr('class').split(/\s+/);
-				$('body').removeClass();
-				$.each(classList, function(index, item) {
-					$('body').addClass(item);
-				});
-			}
-		});
-	}
-	$('a:urlInternal').live('click', function(event) {
-		if ($historySupported) {
-			$el = $(this);
-			if ((!$el.hasClass("comment-reply-link")) && ($el.attr("id") != 'cancel-comment-reply-link') && (!$el.hasClass('ab-item')) && (!$el.hasClass('post-edit-link')) && (!$el.hasClass('no-ajax'))) {
-				(event.preventDefault) ? event.preventDefault() : event.returnValue = false;
-				var path = $el.attr('href').replace(base, '');
-				history.pushState(path, base + path, path);
-				ajaxLoadContent(path);
-				$(".current_page_item").removeClass("current_page_item");
-				$allLinks.removeClass("current_link");
-				$el.addClass("current_link").parent().addClass("current_page_item");
-				_gaq.push(['_trackPageview']);
-				return;
-			}
-		}
-	});
-	$('#searchform').submit(function(event) {
-		if ($historySupported) {
-			(event.preventDefault) ? event.preventDefault() : event.returnValue = false;
-			var s = $searchInput.val();
-			if (s) {
-				var path = '/?s=' + s;
-				history.pushState(path, base + path, path);
-				ajaxLoadContent(path);
-				$(".current_page_item").removeClass("current_page_item");
-				$allLinks.removeClass("current_link");
-			}
-			return false;
-		}
-	});
-	$(window).resize(function() {
-		fullScreenSlide();
-		bindHoverFx();
-		mediaQueryCalculator();
-	});
+
+
 
 	function mediaQueryCalculator() {
 		var width = $(window).width();
@@ -330,33 +158,6 @@ $(document).ready(function() {
 		}
 	}
 
-	function fixPlaceholders() {
-		$('input.wpcf7-text, textarea ').focus(function() {
-			if (!$(this).data('originalValue')) {
-				$(this).data('originalValue', $(this).val());
-			}
-			if ($(this).val() == $(this).data('originalValue')) {
-				$(this).val('');
-			}
-		}).blur(function() {
-			if ($(this).val() == '') {
-				$(this).val($(this).data('originalValue'));
-			}
-		});
-		$('#mc_mv_EMAIL').val('Email Address');
-		$('#mc_mv_EMAIL').focus(function() {
-			if (!$(this).data('originalValue')) {
-				$(this).data('originalValue', $(this).val());
-			}
-			if ($(this).val() == $(this).data('originalValue')) {
-				$(this).val('');
-			}
-		}).blur(function() {
-			if ($(this).val() == '') {
-				$(this).val($(this).data('originalValue'));
-			}
-		});
-	}
-	fixPlaceholders();
+
 	init();
 });

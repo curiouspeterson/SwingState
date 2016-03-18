@@ -718,7 +718,7 @@ header h1 a:visited {
 }
 
 .colorado .stateshape{
-	background-image
+
 }
 
 .swing-inner.active{
@@ -726,10 +726,10 @@ header h1 a:visited {
 }
 .chain{
   width:10px;
-  background:red;
   height:100%;
   position:absolute;
 	z-index:10;
+	background-image: url('images/rope-tile.png') repeat-y;
 }
 
 .chain.right{
@@ -743,12 +743,13 @@ header h1 a:visited {
 }
 
 .swing-bottom{
-  height:10px;
-  width:100%;
-  background:red;
+	overflow:visible;
+		width:100%;
+
   bottom:0px;
   position:absolute;
 	z-index:10;
+
 }
 
 
