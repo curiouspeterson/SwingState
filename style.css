@@ -786,6 +786,52 @@ header h1 a:visited {
 a.state-selection{
 	font-size:16px;
 }
+.state .StateShape img{
+	max-height:300px;
+}
+
+.new-hampshire .StateShape img{
+	max-height:100px;
+}
+
+
+
+.state.florida.in-swing {
+    max-width: 250px;
+    bottom: -60px;
+    left: -30px;
+}
+
+.state.virginia.in-swing {
+    width: 300px;
+    bottom: 18px;
+    left: -15px;
+}
+
+.state.ohio.in-swing {
+    max-width: 300px;
+    bottom: -28px;
+    left: 0px;
+}
+
+.state.colorado.in-swing {
+    width: 280px;
+    bottom: 23px;
+    left: -18px;
+}
+
+.state.iowa.in-swing {
+    width: 280px;
+    bottom: 10px;
+    left: -18px;
+}
+
+.state.nevada.in-swing {
+    width: 284px;
+    bottom: -120px;
+    left: -17px;
+}
+
 
 
 @-webkit-keyframes example {
