@@ -766,6 +766,24 @@ header h1 a:visited {
     position: relative;
     z-index: 11;
     text-align: center;
+		padding-bottom:10px;
+		padding-top:10px;
+}
+
+.state-selection-container a {
+	display:inline-block;
+	height:60px;
+	width:80px;
+	padding:10px;
+	background-color: rgba(255,255,255,0.2);
+	-moz-border-radius: 5px; /* FF1+ */
+	-webkit-border-radius: 5px; /* Saf3+, Chrome */
+	-khtml-border-radius: 5px; /* Konqueror */
+	border-radius: 5px; /* Standard. IE9 */
+}
+
+.state-selection-container a img{
+	max-height:20px;
 }
 
 .state{
