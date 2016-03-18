@@ -235,7 +235,7 @@ td {
 	background: url('img/ajax-loader2.gif');
 }
 #ajax-container {
-	background: url('img/capital-background.jpg') no-repeat center center;
+    background: #4CBEF0;
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -256,6 +256,13 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 }
+
+#header {
+    background: #4CBEF0;
+    position: relative;
+    z-index: 50;
+}
+
 .post-content {
 	text-align: center;
 	line-height: 1.2;
@@ -264,7 +271,7 @@ body {
 	color: white;
 }
 #home-page-intro-inner {
-	margin-bottom: 150px;
+	
 	position: relative;
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
@@ -752,9 +759,10 @@ header h1 a:visited {
 
 }
 
-.state-selection-container{
-	position:relative;
-	z-index:11;
+.state-selection-container {
+    position: relative;
+    z-index: 11;
+    text-align: center;
 }
 
 .state{
@@ -790,9 +798,6 @@ a.state-selection{
 	max-height:300px;
 }
 
-.new-hampshire .StateShape img{
-	max-height:100px;
-}
 
 
 
@@ -832,41 +837,48 @@ a.state-selection{
     left: -17px;
 }
 
+.state.new-hampshire.in-swing {
+    bottom: 20px;
+}
+.state.new-hampshire .StateShape img{
+	max-height:100px;
+}
+
 
 
 @-webkit-keyframes example {
     0% {
-       -webkit-transform: perspective(400) rotateX(0deg);
+       -webkit-transform: perspective(600) rotateX(0deg);
     }
     10% {
-       -webkit-transform: perspective(400) rotateX(-80deg);
+       -webkit-transform: perspective(600) rotateX(-80deg);
     }
     20% {
-       -webkit-transform: perspective(400) rotateX(70deg);
+       -webkit-transform: perspective(600) rotateX(70deg);
     }
     30% {
-       -webkit-transform: perspective(400) rotateX(-60deg);
+       -webkit-transform: perspective(600) rotateX(-60deg);
     }
     40% {
-       -webkit-transform: perspective(400) rotateX(50deg);
+       -webkit-transform: perspective(600) rotateX(50deg);
     }
     50% {
-       -webkit-transform: perspective(400) rotateX(-40deg);
+       -webkit-transform: perspective(600) rotateX(-40deg);
     }
     60% {
-       -webkit-transform: perspective(400) rotateX(30deg);
+       -webkit-transform: perspective(600) rotateX(30deg);
     }
     70% {
-       -webkit-transform: perspective(400) rotateX(-20deg);
+       -webkit-transform: perspective(600) rotateX(-20deg);
     }
     80% {
-       -webkit-transform: perspective(400) rotateX(10deg);
+       -webkit-transform: perspective(600) rotateX(10deg);
     }
     90% {
-       -webkit-transform: perspective(400) rotateX(-5deg);
+       -webkit-transform: perspective(600) rotateX(-5deg);
     }
     100% {
-       -webkit-transform: perspective(400) rotateX(0deg);
+       -webkit-transform: perspective(600) rotateX(0deg);
     }
 }
 
