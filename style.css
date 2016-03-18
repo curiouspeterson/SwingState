@@ -601,7 +601,7 @@ h3 {
 	font-size: 20px;
 	text-align: center;
 	text-transform: uppercase;
-	margin-bottom: 50px;
+
 }
 h4 {
 	font-size: 14px;
@@ -700,9 +700,9 @@ header h1 a:visited {
 .swing-outer{
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 100%;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: visible;
 
 }
 .swing-inner{
@@ -711,10 +711,10 @@ header h1 a:visited {
     position:relative;
     text-align: center;
 		overflow:visible;
-		height:200px;
-		width:150px;
+		height:300px;
+		width:250px;
 		left:50%;
-		margin-left:-75px;
+		margin-left:-125px;
 }
 
 .colorado .stateshape{
@@ -758,7 +758,7 @@ header h1 a:visited {
   bottom:300px;
   text-align: center;
   width:100%;
-	display:block;
+	display:none;
 	-webkit-transition: bottom 1s ease-in-out;
 	-o-transition: bottom 1s ease-in-out;
 	transition: bottom 1s ease-in-out;
@@ -771,6 +771,11 @@ header h1 a:visited {
 	-webkit-transition: bottom 1s ease-in-out;
 	-o-transition: bottom 1s ease-in-out;
 	transition: bottom 1s ease-in-out;
+	
+}
+
+a.state-selection{
+	font-size:16px;
 }
 
 
@@ -1279,7 +1284,7 @@ width: 100%;
 }
 h3 {
 font-size: 20px;
-margin-bottom: 30px;
+
 }
 .footer-logo-container {
 opacity: 0.6;
@@ -1392,7 +1397,7 @@ margin-bottom: 44px;
 }
 h3 {
 font-size: 20px;
-margin-bottom: 30px;
+
 }
 .footer-logo-container {
 opacity: 0.6;

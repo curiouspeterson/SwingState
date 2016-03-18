@@ -43,9 +43,6 @@ $(document).ready(function() {
 		}
 	}
 
-	
-	
-
 	function init() {
 
 		$newHeight = $('.current-post').outerHeight();
@@ -56,10 +53,6 @@ $(document).ready(function() {
 		$historySupported = false;
 
 	}
-
-
-
-
 
 	function mediaQueryCalculator() {
 		var width = $(window).width();
