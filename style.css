@@ -728,27 +728,27 @@ header h1 a:visited {
   width:10px;
   height:100%;
   position:absolute;
-	z-index:10;
-	background-image: url('images/rope-tile.png') repeat-y;
+	z-index:20;
+  background: url(images/rope-tile-10.png) repeat-y;
 }
+
 
 .chain.right{
   top:0;
-  right:0px;
+  right:16px;
 }
 
 .chain.left{
-  top:0;
-  left:0px;
+	top: 0;
+	left: 16px;
 }
 
 .swing-bottom{
-	overflow:visible;
-		width:100%;
-
-  bottom:0px;
-  position:absolute;
-	z-index:10;
+  overflow: visible;
+  width: 100%;
+  bottom: -10px;
+  position: absolute;
+  z-index: 10;
 
 }
 
@@ -766,7 +766,7 @@ header h1 a:visited {
 	-webkit-transition: bottom 1s ease-in-out;
 	-o-transition: bottom 1s ease-in-out;
 	transition: bottom 1s ease-in-out;
-	z-index:9;
+	z-index:10;
 	opacity: 0;
 	-moz-opacity: 0;
 		filter:alpha(opacity=0);
