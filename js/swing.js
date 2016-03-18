@@ -18,6 +18,8 @@ $(document).ready(function() {
 	
 	$( ".state-selection" ).click(function(event) {
 		event.preventDefault();
+		$('.state-selection').removeClass('activeLink');
+		$(this).addClass('activeLink');
 		var dataState = $(this).data('state');
 		$('.state.active').addClass('not-active');
 		var selectedState = ".state." + dataState + "";

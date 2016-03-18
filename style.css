@@ -595,10 +595,10 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight: 400;
 }
 h2 {
-	font-size: 42px;
-	margin-bottom: 10px;
-	text-align: center;
-	font-weight: 500;
+    font-size: 42px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-weight: 500;
 }
 h2#congress-tweet {
 	line-height: 1;
@@ -796,9 +796,17 @@ header h1 a:visited {
 
 a.state-selection{
 	font-size:16px;
+	-webkit-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
 }
+
 .state .StateShape img{
 	max-height:300px;
+}
+
+a.state-selection:hover, a.state-selection.activeLink {
+	color:white;
 }
 
 
