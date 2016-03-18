@@ -781,16 +781,11 @@ header h1 a:visited {
 	opacity: 1.0;
 	-moz-opacity: 1.0;
 		filter:alpha(opacity=100);
-	
 }
 
 a.state-selection{
 	font-size:16px;
 }
-
-
-
-
 
 
 @-webkit-keyframes example {
